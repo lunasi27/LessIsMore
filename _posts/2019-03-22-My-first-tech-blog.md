@@ -10,6 +10,8 @@ tag: jekyll
 {:toc}
 
 
+----------------------------
+
 ![初心]({{ '/styles/images/buWangChuXin.PNG' | prepend: site.baseurl  }})
 
 时至今日我已经36岁了，常言道三十而立四十不惑，然而在技术的道路上我依然感觉非常迷茫。
