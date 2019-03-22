@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  管理者如何建立和使用关系网络
-date:   2019--3-22 20:05:00 +0800
+date:   2019-03-22 20:05:00 +0800
 categories: 翻译文章
 tag: management
 ---
