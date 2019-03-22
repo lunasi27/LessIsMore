@@ -3,7 +3,7 @@ layout: post
 title:  "初心"
 date:   2019-03-22 13:31:01 +0800
 categories: 随笔
-tag: jekyll
+tag: thought
 ---
 
 * content
