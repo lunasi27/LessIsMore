@@ -10,10 +10,7 @@ tag: jekyll
 {:toc}
 
 
-初心                 {#back-to-top}
-------------------------
-
-!({{ '/styles/images/buWangChuXin.PNG' | prepend: site.baseurl  }})
+![初心]({{ '/styles/images/buWangChuXin.PNG' | prepend: site.baseurl  }})
 
 时至今日我已经36岁了，常言道三十而立四十不惑，然而在技术的道路上我依然感觉非常迷茫。
 微电子专业出生的我，本来应该为祖国的IC事业添砖加瓦，但是阴差阳错之下，我进入了微电子与计算机的交叉学科EDA行业。
