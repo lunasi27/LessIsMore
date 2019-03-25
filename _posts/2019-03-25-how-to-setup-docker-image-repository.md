@@ -44,7 +44,7 @@ vi /etc/docker/daemon.json
 
 {
 
-  "registry-mirrors": ["<your accelerate address>"]
+  "registry-mirrors": ["\<your accelerate address\>"]
 
 }
 
