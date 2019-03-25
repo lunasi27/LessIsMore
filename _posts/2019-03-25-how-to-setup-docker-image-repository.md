@@ -37,7 +37,7 @@ https://hub.docker.com
 https://quay.io
 
 Docker 设置镜像源的方法
-====================================
+------------------------------------
 vi /etc/docker/daemon.json
 
 添加
