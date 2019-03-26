@@ -64,20 +64,34 @@ service docker restart
 
 解决方案：
 
-1,将本机IP加入到NO_PROXY列表中\n
+1,将本机IP加入到NO_PROXY列表中
+
 export NO_PROXY=<host_ip>,$NO_PROXY
 
 2,取消宿主机的proxy环境变量设置，而给docker添加PROXY
+
 mkdir -p /etc/systemd/system/docker.service.d
+
 vi /etc/systemd/system/docker.service.d/http-proxy.conf
+
     [Service]
+
     Environment="HTTP_PROXY=<proxy_address>:<port>/"
+
 vi /etc/systemd/system/docker.service.d/https-proxy.conf
+
     [Service]
+
     Environment="HTTPS_PROXY=<proxy_address>:<port>/"
+
 vi /etc/systemd/system/docker.service.d/-proxy.conf
+
     [Service]
+
     Environment="NO_PROXY=<proxy_address>,<proxy_address>"
+
 systemctl daemon-reload
+
 systemctl restart docker
+
 systemctl show --property=Environment docker
