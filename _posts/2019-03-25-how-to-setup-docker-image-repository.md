@@ -36,6 +36,7 @@ https://hub.docker.com
 
 https://quay.io
 
+
 Docker 设置镜像源的方法
 ------------------------------------
 vi /etc/docker/daemon.json
@@ -53,3 +54,30 @@ vi /etc/docker/daemon.json
 systemctl daemon-reload
 
 service docker restart
+
+
+宿主机设置了proxy导致kubenetes添加node不成功的问题
+------------------------------------
+原因：
+
+宿主机因为设置了proxy导致kubectl命令无法执行，取消代理可以执行kubectl。但是，docker无法连接internet，导致docker pull无法成功执行。
+
+解决方案：
+
+1,将本机IP加入到NO_PROXY列表中\n
+export NO_PROXY=<host_ip>,$NO_PROXY
+
+2,取消宿主机的proxy环境变量设置，而给docker添加PROXY
+mkdir -p /etc/systemd/system/docker.service.d
+vi /etc/systemd/system/docker.service.d/http-proxy.conf
+    [Service]
+    Environment="HTTP_PROXY=<proxy_address>:<port>/"
+vi /etc/systemd/system/docker.service.d/https-proxy.conf
+    [Service]
+    Environment="HTTPS_PROXY=<proxy_address>:<port>/"
+vi /etc/systemd/system/docker.service.d/-proxy.conf
+    [Service]
+    Environment="NO_PROXY=<proxy_address>,<proxy_address>"
+systemctl daemon-reload
+systemctl restart docker
+systemctl show --property=Environment docker
